@@ -8,7 +8,9 @@
     "clean": "rimraf dist",
     "tsc": "tsc",
     "build": "npm-run-all clean tsc",
-    "start": "node ."
+    "start": "node .",
+    "pretest": "tsc",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -21,21 +23,44 @@
   },
   "homepage": "https://github.com/jonnity/tsumigame_server#readme",
   "dependencies": {
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "routing-controllers": "^0.9.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/http-errors": "^1.8.1",
+    "@types/jest": "^27.0.2",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.11.6",
+    "jest": "^27.3.1",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/tests/**/*.test.ts"
+    ]
   }
 }
