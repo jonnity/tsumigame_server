@@ -1,19 +1,46 @@
 import express from "express";
+
+import createError from "http-errors";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+
 import router from "./routes/test";
 
 const app = express();
 
-// JSONオブジェクトの受信設定
+app.use(morgan("dev"));
 app.use(express.json());
-// 配列側のオブジェクトの受信設定
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // ルーティング
 app.use("/v1", router);
 
-// 3000ポートで受信
-const port = process.env.PORT || 3000;
+// catch 404 and forward to error handler
+app.use(function (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
+  next(createError(404));
+});
 
-// APIサーバ起動
+// error handler
+app.use(function (
+  err: any,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
+});
+
+const port: string | number = process.env.PORT || 3000;
 app.listen(port);
 console.log("Express WebApi listening on port " + port);
