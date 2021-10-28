@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: |
-        cd src
-        npm i -D typescript jest ts-jest @types/jest
-        npm test
+          cd src
+          npm i -D typescript jest ts-jest @types/jest
+          npm test
       - uses: actions/upload-artifact@v2
         with:
           name: coverage
