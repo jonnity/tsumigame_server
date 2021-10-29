@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import { useExpressServer } from "routing-controllers"
-import { testController } from "./routes/testController";
+import { testController } from "./routes/testController"
 
 const app = express();
 
@@ -29,12 +29,7 @@ useExpressServer(app, {
 // });
 
 // error handler
-app.use(function (
-  err: any,
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
