@@ -4,7 +4,7 @@ import createError from "http-errors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
-import { useExpressServer } from "routing-controllers"
+import { useExpressServer } from "routing-controllers";
 import { testController } from "./routes/testController"
 
 const app = express();
