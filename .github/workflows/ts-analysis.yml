@@ -16,8 +16,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+        env:
+          test: ${{ secrets.TEST }}
+
         run: |
           cd src
-          npm i -D typescript jest ts-jest @types/jest
+          npm i
           npm test
-      - name:
+          echo $TEST
