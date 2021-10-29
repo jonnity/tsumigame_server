@@ -3,7 +3,7 @@ name: ts-analysis
 on: push
 
 jobs:
-  ts-analysis:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
