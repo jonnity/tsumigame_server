@@ -22,4 +22,4 @@ jobs:
           cd src
           npm i -D typescript jest ts-jest @types/jest
           npm test
-          echo "test: $TEST"
+          echo "test: $test"
