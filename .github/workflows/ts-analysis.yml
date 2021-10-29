@@ -20,6 +20,6 @@ jobs:
           test: ${{ secrets.TEST }}
       - run: |
           cd src
-          npm i
+          npm i -D typescript jest ts-jest @types/jest
           npm test
           echo $TEST
