@@ -13,12 +13,6 @@
     "test": "jest --coverage",
     "precommit": "lint-staged"
   },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jonnity/tsumigame_server.git"
@@ -77,6 +71,17 @@
     },
     "testMatch": [
       "**/tests/**/*.test.ts"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
