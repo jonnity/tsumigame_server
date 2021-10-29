@@ -1,9 +1,9 @@
-name: ts-compile
+name: ts-analysis
 
 on: push
 
 jobs:
-  build:
+  ts-analysis:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,12 +16,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: |
+        run: |
           cd src
           npm i -D typescript jest ts-jest @types/jest
           npm test
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: /src/coverage
-          retention-days: 3
+      - name:
