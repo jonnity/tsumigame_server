@@ -18,7 +18,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
         env:
           test: ${{ secrets.TEST }}
-
         run: |
           cd src
           npm i
