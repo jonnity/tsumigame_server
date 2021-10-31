@@ -2,6 +2,7 @@ const sonarqubeScanner = require("sonarqube-scanner");
 
 const SONARQUBE_URL = "https://sonarcloud.io/";
 const SONARQUBE_TOKEN = process.argv[2];
+const BRANCH = process.argv[3];
 
 const PROJECT_NAME = "tsumigame_server";
 sonarqubeScanner(
@@ -10,6 +11,7 @@ sonarqubeScanner(
     options: {
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
+      "sonar.branch.target": BRANCH,
       "sonar.projectKey": PROJECT_NAME,
       "sonar.sources": "./",
       "sonar.login": SONARQUBE_TOKEN,
