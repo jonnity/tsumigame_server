@@ -20,4 +20,5 @@ jobs:
           cd src
           npm i
           npm test
+          cat ./coverage/lcov.info
           node sonar-project.js $SONAR_TOKEN $GITHUB_REF
