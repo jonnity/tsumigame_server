@@ -1,9 +1,6 @@
 name: ts-analysis
 
-on:
-  push:
-    branches:
-      - "*"
+on: push
 
 jobs:
   analysis:
