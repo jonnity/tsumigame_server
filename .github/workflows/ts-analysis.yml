@@ -13,13 +13,14 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - uses: 
-        - actions/checkout@v2
-        - actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-      run: |
-        cd src
-        npm i -D typescript jest ts-jest @types/jest
-        npm test
-        echo "test: $test"
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: test_and_sonnar
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+        run: |
+          cd src
+          npm i -D typescript jest ts-jest @types/jest
+          npm test
+          echo "test: $test"
