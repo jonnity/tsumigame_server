@@ -4,6 +4,9 @@ const SONARQUBE_URL = "https://sonarcloud.io/";
 const SONARQUBE_TOKEN = process.argv[2];
 const BRANCH = process.argv[3];
 
+const refList = BRANCH.split("/");
+const branchName = refList[refList.length - 1];
+
 const PROJECT_NAME = "tsumigame_server";
 sonarqubeScanner(
   {
@@ -12,7 +15,7 @@ sonarqubeScanner(
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
       "sonar.branch.target": BRANCH,
-      "sonar.branch.name": branchName(BRANCH),
+      "sonar.branch.name": branchName,
       "sonar.projectKey": PROJECT_NAME,
       "sonar.sources": "./",
       "sonar.login": SONARQUBE_TOKEN,
@@ -27,8 +30,3 @@ sonarqubeScanner(
     console.log("scanning " + PROJECT_NAME);
   }
 );
-
-const branchName = function (ref) {
-  const refList = ref.split("/");
-  return refList[refList.length - 1];
-};
