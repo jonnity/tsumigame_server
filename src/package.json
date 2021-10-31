@@ -11,8 +11,7 @@
     "start": "node .",
     "pretest": "tsc",
     "test": "jest --coverage",
-    "precommit": "lint-staged",
-    "prepare": "husky install"
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",

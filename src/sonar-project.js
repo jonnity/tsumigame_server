@@ -14,7 +14,7 @@ sonarqubeScanner(
       "sonar.projectKey": PROJECT_NAME + ":" + BRANCH,
       "sonar.sources": ".",
       "sonar.login": SONARQUBE_TOKEN,
-      "sonar.branch.target": BRANCH,
+      // "sonar.branch.target": BRANCH,
       "sonar.projectName": PROJECT_NAME + ":" + BRANCH,
       "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
       "sonar.tests": "tests/",

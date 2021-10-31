@@ -1,6 +1,9 @@
 name: ts-analysis
 
-on: push
+on:
+  push:
+    branches:
+      - "*"
 
 jobs:
   analysis:
@@ -17,7 +20,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd src
-          npm i -D typescript jest ts-jest @types/jest
+          npm i
           npm test
-          npm i sonarqube-scanner
           node sonar-project.js $GITHUB_REF $SONAR_TOKEN
