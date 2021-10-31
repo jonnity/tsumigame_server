@@ -11,10 +11,10 @@ sonarqubeScanner(
     options: {
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
-      "sonar.projectKey": PROJECT_NAME,
+      "sonar.projectKey": PROJECT_NAME + ":" + BRANCH,
       "sonar.sources": ".",
       "sonar.login": SONARQUBE_TOKEN,
-      "sonar.projectName": PROJECT_NAME + ": " + BRANCH,
+      "sonar.projectName": PROJECT_NAME + ":" + BRANCH,
       "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
       "sonar.tests": "tests/",
       "sonar.exclusions": "./tests/**, sonar-project.js, .prettierrc.js",
