@@ -8,17 +8,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          path: src
-          cache: "npm"
-          cache-dependency-path: src/package-lock.json
       - name: test_and_sonnar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd src
+          npm i
           npm test
           node sonar-project.js $GITHUB_REF $SONAR_TOKEN
