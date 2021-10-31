@@ -12,6 +12,7 @@ sonarqubeScanner(
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
       "sonar.branch.target": BRANCH,
+      "sonar.branch.name": branchName(BRANCH),
       "sonar.projectKey": PROJECT_NAME,
       "sonar.sources": "./",
       "sonar.login": SONARQUBE_TOKEN,
@@ -26,3 +27,8 @@ sonarqubeScanner(
     console.log("scanning " + PROJECT_NAME);
   }
 );
+
+const branchName = function (ref) {
+  const refList = ref.split("/");
+  return refList[refList.length - 1];
+};
