@@ -4,7 +4,7 @@ const SONARQUBE_URL = "https://sonarcloud.io/";
 const BRANCH = process.argv[2];
 const SONARQUBE_TOKEN = process.argv[3];
 
-const PROJECT_NAME = "tsumigame_server" + BRANCH;
+const PROJECT_NAME = "tsumigame_server";
 sonarqubeScanner(
   {
     serverUrl: SONARQUBE_URL,
@@ -14,7 +14,7 @@ sonarqubeScanner(
       "sonar.projectKey": PROJECT_NAME,
       "sonar.sources": ".",
       "sonar.login": SONARQUBE_TOKEN,
-      "sonar.projectName": PROJECT_NAME,
+      "sonar.projectName": PROJECT_NAME + ": " + BRANCH,
       "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
       "sonar.tests": "tests/",
       "sonar.exclusions": "./tests/**, sonar-project.js, .prettierrc.js",
