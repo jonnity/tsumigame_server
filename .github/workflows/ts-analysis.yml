@@ -13,6 +13,7 @@ jobs:
           node-version: 14
           path: src
           cache: "npm"
+          cache-dependency-path: src/package-lock.json
       - name: test_and_sonnar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
