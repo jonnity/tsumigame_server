@@ -11,7 +11,7 @@ sonarqubeScanner(
     options: {
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
-      "sonar.projectKey": PROJECT_NAME + ":" + BRANCH,
+      "sonar.projectKey": PROJECT_NAME,
       "sonar.sources": ".",
       "sonar.login": SONARQUBE_TOKEN,
       // "sonar.branch.target": BRANCH,
