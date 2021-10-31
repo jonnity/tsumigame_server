@@ -19,4 +19,5 @@ jobs:
           cd src
           npm i
           npm test
-          node sonar-project.js $GITHUB_REF $SONAR_TOKEN
+          cd ..
+          node sonar-project.js $SONAR_TOKEN

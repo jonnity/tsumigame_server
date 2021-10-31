@@ -1,8 +1,7 @@
 const sonarqubeScanner = require("sonarqube-scanner");
 
 const SONARQUBE_URL = "https://sonarcloud.io/";
-const BRANCH = process.argv[2];
-const SONARQUBE_TOKEN = process.argv[3];
+const SONARQUBE_TOKEN = process.argv[2];
 
 const PROJECT_NAME = "tsumigame_server";
 sonarqubeScanner(
@@ -12,12 +11,12 @@ sonarqubeScanner(
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
       "sonar.projectKey": PROJECT_NAME,
-      "sonar.sources": ".",
+      "sonar.sources": "./src/",
       "sonar.login": SONARQUBE_TOKEN,
       // "sonar.branch.target": BRANCH,
-      "sonar.projectName": PROJECT_NAME + ":" + BRANCH,
-      "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
-      "sonar.tests": "tests/",
+      "sonar.projectName": PROJECT_NAME,
+      "sonar.typescript.lcov.reportPaths": "src/coverage/lcov.info",
+      "sonar.tests": "src/tests/",
       "sonar.exclusions": "./tests/**, sonar-project.js, .prettierrc.js",
       "sonar.test.inclusions": "./tests/**.test.ts",
     },
