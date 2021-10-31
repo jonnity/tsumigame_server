@@ -3,8 +3,10 @@ name: ts-analysis
 on: push
 
 jobs:
-  build:
+  analysis:
     runs-on: ubuntu-latest
+    env:
+      test: ${{ secrets.TEST }}
 
     strategy:
       matrix:
@@ -12,14 +14,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-        env:
-          test: ${{ secrets.TEST }}
-      - run: |
-          cd src
-          npm i -D typescript jest ts-jest @types/jest
-          npm test
-          echo "test: $test"
+      - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+      run: |
+        cd src
+        npm i -D typescript jest ts-jest @types/jest
+        npm test
+        echo "test: $test"
