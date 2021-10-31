@@ -5,8 +5,6 @@ on: push
 jobs:
   analysis:
     runs-on: ubuntu-latest
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     strategy:
       matrix:
@@ -20,6 +18,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: test_and_sonnar
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd src
           npm i -D typescript jest ts-jest @types/jest
