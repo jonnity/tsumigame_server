@@ -17,7 +17,7 @@ sonarqubeScanner(
       "sonar.sources": "./",
       "sonar.login": SONARQUBE_TOKEN,
       "sonar.projectName": PROJECT_NAME,
-      "sonar.typescript.lcov.reportPaths": "src/coverage/lcov.info",
+      "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
       "sonar.tests": "tests/",
       "sonar.exclusions": "tests/**, sonar-project.js, .prettierrc.js",
       "sonar.test.inclusions": "tests/**.test.ts",
