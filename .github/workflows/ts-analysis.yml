@@ -6,7 +6,7 @@ jobs:
   analysis:
     runs-on: ubuntu-latest
     env:
-      test: ${{ secrets.TEST }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     strategy:
       matrix:
@@ -24,4 +24,4 @@ jobs:
           cd src
           npm i -D typescript jest ts-jest @types/jest
           npm test
-          echo "test: $test"
+          node sonar-project.js $SONAR_TOKEN
