@@ -11,7 +11,7 @@ sonarqubeScanner(
       "sonar.sourceEncoding": "UTF-8",
       "sonar.organization": "jonnity",
       "sonar.projectKey": PROJECT_NAME,
-      "sonar.sources": "./src",
+      "sonar.sources": "./",
       "sonar.login": SONARQUBE_TOKEN,
       "sonar.projectName": PROJECT_NAME,
       "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
