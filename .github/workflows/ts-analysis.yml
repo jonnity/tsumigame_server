@@ -17,6 +17,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd src
-          npm ix
+          npm i
           npm test
           node sonar-project.js $GITHUB_REF $SONAR_TOKEN
