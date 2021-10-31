@@ -1,9 +1,10 @@
 const sonarqubeScanner = require("sonarqube-scanner");
 
 const SONARQUBE_URL = "https://sonarcloud.io/";
-const SONARQUBE_TOKEN = process.argv[2];
+const BRANCH = process.argv[2];
+const SONARQUBE_TOKEN = process.argv[3];
 
-const PROJECT_NAME = "tsumigame_server";
+const PROJECT_NAME = "tsumigame_server" + BRANCH;
 sonarqubeScanner(
   {
     serverUrl: SONARQUBE_URL,
@@ -20,5 +21,7 @@ sonarqubeScanner(
       "sonar.test.inclusions": "./tests/**.test.ts",
     },
   },
-  () => {}
+  () => {
+    console.log("scanning " + PROJECT_NAME);
+  }
 );

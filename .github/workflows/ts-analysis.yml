@@ -6,23 +6,19 @@ jobs:
   analysis:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: checkout
         uses: actions/checkout@v2
       - name: node_setup
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14
+          cache: npm
       - name: test_and_sonnar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd src
-          npm i -D typescript jest ts-jest @types/jest
           npm test
-          node sonar-project.js $SONAR_TOKEN
+          node sonar-project.js $GITHUB_REF $SONAR_TOKEN
