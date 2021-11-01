@@ -6,6 +6,7 @@ import morgan from "morgan";
 
 import { useExpressServer } from "routing-controllers";
 import { TestController } from "./routes/testController";
+import { OpenidConnectController } from "./routes/openidConnectController";
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(cookieParser());
 
 // ルーティング
 useExpressServer(app, {
-  controllers: [TestController],
+  controllers: [TestController, OpenidConnectController],
 });
 
 // catch 404 and forward to error handler
